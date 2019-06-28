@@ -17,9 +17,9 @@ public class Test_Rocket_1 {
     @Test
     public void RocketMQConsumerTest (){
         String mqNameServer = "192.168.11.205:9876";
-        String mqTopics = "MQ-MSG-TOPICS-TEST";
+        String mqTopics = "TopicTest";
 
-        String consumerMqGroupName = "CONSUMER-MQ-GROUP";
+        String consumerMqGroupName = "gauge_world_currency";
         RocketMQListener mqListener = new RocketMQListener();
         RocketMQConsumer mqConsumer = new RocketMQConsumer(mqListener, mqNameServer, consumerMqGroupName, mqTopics);
         mqConsumer.init();
@@ -44,7 +44,7 @@ public class Test_Rocket_1 {
         mqProducer.init();
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 12; i++) {
 
             Message message = new Message();
             message.setBody(("theo send message to RocketMQ " + i).getBytes());
